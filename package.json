@@ -1,0 +1,49 @@
+{
+  "name": "nano-vibe",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "start": "bun run lib/run.js",
+    "start:dev": "bun run src/run.ts",
+    "dev": "bun run --watch src/run.ts",
+    "dev:tsc": "tsc -p tsconfig.build.json --watch",
+    "dev:bun": "bun run --watch src/run.ts",
+    "build": "bun run build:bun",
+    "build:prod": "bun run build:bun:prod",
+    "build:tsc": "tsc -p tsconfig.build.json",
+    "build:bun": "bun build src/*.ts --outdir lib --target bun",
+    "build:bun:prod": "bun build src/*.ts --outdir lib --target bun --minify",
+    "test": "bun run test:lint && bun run test:type && bun run test:unit",
+    "test:prod": "bun --silent run test:lint:prod && bun --silent run test:type && bun --silent run test:unit:prod",
+    "test:watch": "bun run test:unit:watch",
+    "test:lint": "biome check .",
+    "test:lint:prod": "biome check . --reporter=github",
+    "test:type": "tsc --noEmit",
+    "test:unit": "bun test",
+    "test:unit:watch": "bun test --watch",
+    "test:unit:prod": "bun test --only-failures",
+    "fix": "bun run fix:lint && bun run fix:format",
+    "fix:lint": "biome check --write .",
+    "fix:format": "biome format --write .",
+    "release": "bun run build && bun run test"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.3.13",
+    "@types/bun": "latest",
+    "@types/express": "^5.0.6",
+    "@types/source-map-support": "^0.5.10",
+    "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "@lsk4/config": "^4.28.3",
+    "@lsk4/log": "^4.28.0",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "fishbird": "^1.1.8",
+    "source-map-support": "^0.5.21",
+    "zod": "3"
+  }
+}
