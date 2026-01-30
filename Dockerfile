@@ -10,7 +10,7 @@ RUN bun install --frozen-lockfile
 FROM deps AS build
 COPY src src
 COPY tsconfig.json tsconfig.build.json ./
-RUN bun build src/run.ts src/index.ts src/main.ts src/add.ts src/config.ts src/log.ts --outdir lib --target bun
+RUN bun run build:prod
 
 # Production dependencies only
 FROM base AS prod-deps
