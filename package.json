@@ -1,5 +1,16 @@
 {
   "name": "nano-vibe",
+  "version": "0.1.0",
+  "description": "TypeScript HTTP API на Bun",
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "engines": {
+    "bun": ">=1.0.0"
+  },
   "main": "lib/index.js",
   "module": "lib/index.js",
   "types": "lib/index.d.ts",
