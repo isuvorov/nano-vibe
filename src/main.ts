@@ -19,7 +19,21 @@ export function main() {
         return Response.json({ result: add(a, b) });
       }
 
-      return Response.json({ ok: true, name: 'nano-vibe' });
+      return new Response(
+        `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>nano-vibe</title>
+</head>
+<body>
+  <h1>nano-vibe</h1>
+  <p>API: <code>GET /add?a=10&b=5</code></p>
+</body>
+</html>`,
+        { headers: { 'Content-Type': 'text/html' } },
+      );
     },
   });
 
